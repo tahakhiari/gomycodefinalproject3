@@ -13,17 +13,19 @@ const uploadRoutes = require('./routes/upload')
 app.use(express.json())
 app.use(cors())
 // 3 - routes
+
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.use(express.static(path.join('/frontend/build')))
 
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.resolve('frontend', 'build', 'index.html'))
   )
 } else {
-app.get('/', (req, res) => {
-  res.json({ message: '!' })
-})}
+  app.get('/', (req, res) => {
+    res.json({ message: '!' })
+  })
+}
 app.use("/users", user)
 app.use("/albums", album)
 app.use("/api/uploads", uploadRoutes)
