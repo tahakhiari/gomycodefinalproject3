@@ -9,7 +9,7 @@
     "front": "cd frontend && npm start",
     "back": "cd backend && nodemon server",
     "dev": "concurrently \"npm run front\" \"npm run back\"",
-    "heroku-postbuild": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
