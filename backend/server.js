@@ -1,4 +1,6 @@
 const express = require('express')
+require('dotenv').config();
+
 const connectDB = require('./config/connectDB')
 const user = require('./routes/user')
 const album = require('./routes/album')
